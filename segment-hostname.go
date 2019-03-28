@@ -18,31 +18,33 @@ func getMd5(text string) []byte {
 }
 
 func segmentHost(p *powerline) {
-	var hostPrompt string
-	var foreground, background uint8
-	if *p.args.ColorizeHostname {
-		hostName := getHostName()
-		hostPrompt = hostName
+	/*
+		var hostPrompt string
+		var foreground, background uint8
+		if *p.args.ColorizeHostname {
+			hostName := getHostName()
+			hostPrompt = hostName
 
-		hash := getMd5(hostName)
-		background = hash[0]
-		foreground = p.theme.HostnameColorizedFgMap[background]
-	} else {
-		if *p.args.Shell == "bash" {
-			hostPrompt = "\\h"
-		} else if *p.args.Shell == "zsh" {
-			hostPrompt = "%m"
+			hash := getMd5(hostName)
+			background = hash[0]
+			foreground = p.theme.HostnameColorizedFgMap[background]
 		} else {
-			hostPrompt = getHostName()
+			if *p.args.Shell == "bash" {
+				hostPrompt = "\\h"
+			} else if *p.args.Shell == "zsh" {
+				hostPrompt = "%m"
+			} else {
+				hostPrompt = getHostName()
+			}
+
+			foreground = p.theme.HostnameFg
+			background = p.theme.HostnameBg
 		}
 
-		foreground = p.theme.HostnameFg
-		background = p.theme.HostnameBg
-	}
-
-	p.appendSegment("host", segment{
-		content:    hostPrompt,
-		foreground: foreground,
-		background: background,
-	})
+		p.appendSegment("host", segment{
+			content:    hostPrompt,
+			foreground: foreground,
+			background: background,
+		})
+	*/
 }

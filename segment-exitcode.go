@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"strconv"
 )
 
 func getMeaningFromExitCode(exitCode int) string {
@@ -65,17 +64,19 @@ func getMeaningFromExitCode(exitCode int) string {
 }
 
 func segmentExitCode(p *powerline) {
-	var meaning string
-	if *p.args.PrevError != 0 {
-		if *p.args.NumericExitCodes {
-			meaning = strconv.Itoa(*p.args.PrevError)
-		} else {
-			meaning = getMeaningFromExitCode(*p.args.PrevError)
+	/*
+		var meaning string
+		if *p.args.PrevError != 0 {
+			if *p.args.NumericExitCodes {
+				meaning = strconv.Itoa(*p.args.PrevError)
+			} else {
+				meaning = getMeaningFromExitCode(*p.args.PrevError)
+			}
+			p.appendSegment("exit", segment{
+				content:    meaning,
+				foreground: p.theme.CmdFailedFg,
+				background: p.theme.CmdFailedBg,
+			})
 		}
-		p.appendSegment("exit", segment{
-			content:    meaning,
-			foreground: p.theme.CmdFailedFg,
-			background: p.theme.CmdFailedBg,
-		})
-	}
+	*/
 }

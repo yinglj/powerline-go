@@ -8,7 +8,7 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/mattn/go-runewidth"
+	runewidth "github.com/mattn/go-runewidth"
 	"golang.org/x/crypto/ssh/terminal"
 	"golang.org/x/text/width"
 )
@@ -113,7 +113,7 @@ func (p *powerline) appendSegment(origin string, segment segment) {
 		if p.isRightPrompt() {
 			segment.separator = p.symbolTemplates.SeparatorReverse
 		} else {
-			segment.separator = p.symbolTemplates.Separator
+			//segment.separator = p.symbolTemplates.Separator
 		}
 	}
 	if segment.separatorForeground == 0 {
