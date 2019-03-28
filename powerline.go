@@ -286,13 +286,13 @@ func (p *powerline) drawRow(rowNum int, buffer *bytes.Buffer) {
 
 	// Append padding before cursor for left-aligned prompts
 	if !p.isRightPrompt() || !p.hasRightModules() {
-		buffer.WriteRune(' ')
+		//buffer.WriteRune(' ')
 	}
 
 	// Don't append padding for right-aligned modules
 	if !p.isRightPrompt() {
 		for i := 0; i < numEastAsianRunes; i++ {
-			buffer.WriteRune(' ')
+			//buffer.WriteRune(' ')
 		}
 	}
 }
