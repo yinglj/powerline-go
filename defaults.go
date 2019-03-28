@@ -81,8 +81,8 @@ var themes = map[string]Theme{
 	"default": {
 		Reset: 0xFF,
 
-		UsernameFg:     250,
-		UsernameBg:     240,
+		UsernameFg:     0,
+		UsernameBg:     148,
 		UsernameRootBg: 124,
 
 		HostnameFg: 250,
@@ -115,7 +115,7 @@ var themes = map[string]Theme{
 		DotEnvFg: 15, // white
 		DotEnvBg: 55, // purple
 
-		AWSFg: 15, // white
+		AWSFg: 15,  // white
 		AWSBg: 172, // AWS orange
 
 		RepoCleanFg: 0,   // black
