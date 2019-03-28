@@ -36,6 +36,7 @@ func runSvnCommand(cmd string, args ...string) (string, error) {
 }
 
 func parseSvnURL() (map[string]string, error) {
+	//println("Enter parseSvnURL.")
 	info, err := runSvnCommand("svn", "info")
 	if err != nil {
 		return nil, errors.New("not a working copy")
@@ -48,10 +49,11 @@ func parseSvnURL() (map[string]string, error) {
 			items := strings.Split(line, ": ")
 			if len(items) >= 2 {
 				svnInfo[items[0]] = items[1]
+				//println(items[0], items[1])
 			}
 		}
 	}
-
+	//println("end parseSvnURL.")
 	return svnInfo, nil
 }
 
@@ -62,6 +64,7 @@ func ensureUnmodified(code string, stats repoStats) {
 }
 
 func parseSvnStatus() repoStats {
+	//println("Enter parseSvnStatus.")
 	stats := repoStats{}
 	info, err := runSvnCommand("svn", "status", "-u")
 	if err != nil {
@@ -75,7 +78,7 @@ func parseSvnStatus() repoStats {
 				switch code {
 				case "?":
 					stats.untracked++
-				case "C":
+				case "C", "!":
 					stats.conflicted++
 				case "A", "D", "M":
 					stats.notStaged++
@@ -107,12 +110,11 @@ func parseSvnStatus() repoStats {
 			}
 		}
 	}
-
+	//println("end parseSvnStatus.")
 	return stats
 }
 
 func segmentSubversion(p *powerline) {
-
 	svnInfo, err := parseSvnURL()
 	if err != nil {
 		return
@@ -123,7 +125,6 @@ func segmentSubversion(p *powerline) {
 			return
 		}
 	}
-
 	svnStats := parseSvnStatus()
 
 	var foreground, background uint8
@@ -136,7 +137,7 @@ func segmentSubversion(p *powerline) {
 	}
 
 	p.appendSegment("svn-branch", segment{
-		content:    svnInfo["Relative URL"],
+		content:    "svn", //svnInfo["Relative URL"],
 		foreground: foreground,
 		background: background,
 	})
