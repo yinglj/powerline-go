@@ -8,7 +8,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/mattn/go-runewidth"
+	runewidth "github.com/mattn/go-runewidth"
 )
 
 type alignment int
@@ -150,7 +150,7 @@ func main() {
 				"(valid choices: fancy, plain, dironly)")),
 		CwdMaxDepth: flag.Int(
 			"cwd-max-depth",
-			5,
+			4,
 			commentsWithDefaults("Maximum number of directories to show in path")),
 		CwdMaxDirSize: flag.Int(
 			"cwd-max-dir-size",
