@@ -82,7 +82,7 @@ func parseSvnStatus(p *powerline) repoStats {
 					stats.untracked++
 				case "C", "!":
 					stats.conflicted++
-				case "A", "D", "M":
+				case "A", "D", "M", "~":
 					stats.notStaged++
 				default:
 					ensureUnmodified(code, stats)
