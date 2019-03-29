@@ -63,11 +63,13 @@ func ensureUnmodified(code string, stats repoStats) {
 	}
 }
 
-func parseSvnStatus() repoStats {
+func parseSvnStatus(p *powerline) repoStats {
 	//println("Enter parseSvnStatus.")
 	stats := repoStats{}
 	info, err := runSvnCommand("svn", "status", "-u")
 	if err != nil {
+		*p.args.PrevError = 1 //svn command error
+		//println(fmt.Sprintf("end parseSvnStatus stats: %#v  err: %#v", stats, err))
 		return stats
 	}
 	infos := strings.Split(info, "\n")
@@ -110,7 +112,7 @@ func parseSvnStatus() repoStats {
 			}
 		}
 	}
-	//println("end parseSvnStatus.")
+	//println(fmt.Sprintf("end parseSvnStatus stats: %#v", stats))
 	return stats
 }
 
@@ -125,7 +127,7 @@ func segmentSubversion(p *powerline) {
 			return
 		}
 	}
-	svnStats := parseSvnStatus()
+	svnStats := parseSvnStatus(p)
 
 	var foreground, background uint8
 	if svnStats.dirty() || otherModified > 0 {
