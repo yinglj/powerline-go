@@ -59,7 +59,7 @@ func parseSvnURL() (map[string]string, error) {
 
 func ensureUnmodified(code string, stats repoStats) {
 	if code != " " {
-		otherModified++
+		//otherModified++
 	}
 }
 
@@ -75,7 +75,7 @@ func parseSvnStatus(p *powerline) repoStats {
 	infos := strings.Split(info, "\n")
 	if len(infos) > 1 {
 		for _, line := range infos[:] {
-			if len(line) >= 9 {
+			if len(line) >= 8 {
 				code := line[0:1]
 				switch code {
 				case "?":
