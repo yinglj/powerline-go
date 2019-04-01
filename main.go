@@ -51,6 +51,7 @@ type args struct {
 	TruncateSegmentWidth *int
 	PrevError            *int
 	NumericExitCodes     *bool
+	ShowExitCode         *bool
 	IgnoreRepos          *string
 	ShortenGKENames      *bool
 	ShortenEKSNames      *bool
@@ -59,6 +60,9 @@ type args struct {
 	Duration             *string
 	Eval                 *bool
 	Condensed            *bool
+	SvnStatusLocal       *bool
+	ShowHost             *bool
+	ShowSeparator        *bool
 }
 
 func (s segment) computeWidth(condensed bool) int {
@@ -250,6 +254,22 @@ func main() {
 			"condensed",
 			false,
 			comments("Remove spacing between segments")),
+		SvnStatusLocal: flag.Bool(
+			"svnstatuslocal",
+			false,
+			comments("false -- svn status -u, true -- svn status")),
+		ShowExitCode: flag.Bool(
+			"showexitcode",
+			false,
+			comments("show exit code while command excute faild")),
+		ShowHost: flag.Bool(
+			"showhost",
+			false,
+			comments("show host info")),
+		ShowSeparator: flag.Bool(
+			"showseparator",
+			false,
+			comments("show separator")),
 	}
 	flag.Parse()
 	if strings.HasSuffix(*args.Theme, ".json") {

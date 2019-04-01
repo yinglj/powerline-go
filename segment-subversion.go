@@ -36,7 +36,6 @@ func runSvnCommand(cmd string, args ...string) (string, error) {
 }
 
 func parseSvnURL() (map[string]string, error) {
-	//println("Enter parseSvnURL.")
 	info, err := runSvnCommand("svn", "info")
 	if err != nil {
 		return nil, errors.New("not a working copy")
@@ -49,27 +48,29 @@ func parseSvnURL() (map[string]string, error) {
 			items := strings.Split(line, ": ")
 			if len(items) >= 2 {
 				svnInfo[items[0]] = items[1]
-				//println(items[0], items[1])
 			}
 		}
 	}
-	//println("end parseSvnURL.")
 	return svnInfo, nil
 }
 
 func ensureUnmodified(code string, stats repoStats) {
 	if code != " " {
-		//otherModified++
+		//otherModified++	//this is unnecessary
 	}
 }
 
 func parseSvnStatus(p *powerline) repoStats {
-	//println("Enter parseSvnStatus.")
 	stats := repoStats{}
-	info, err := runSvnCommand("svn", "status", "-u")
+	var err error
+	var info string
+	if *p.args.SvnStatusLocal == false {
+		info, err = runSvnCommand("svn", "status")
+	} else {
+		info, err = runSvnCommand("svn", "status", "-u")
+	}
 	if err != nil {
 		*p.args.PrevError = 1 //svn command error
-		//println(fmt.Sprintf("end parseSvnStatus stats: %#v  err: %#v", stats, err))
 		return stats
 	}
 	infos := strings.Split(info, "\n")

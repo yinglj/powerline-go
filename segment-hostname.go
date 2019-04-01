@@ -18,7 +18,7 @@ func getMd5(text string) []byte {
 }
 
 func segmentHost(p *powerline) {
-	/*
+	if *p.args.ShowHost == true {
 		var hostPrompt string
 		var foreground, background uint8
 		if *p.args.ColorizeHostname {
@@ -46,5 +46,5 @@ func segmentHost(p *powerline) {
 			foreground: foreground,
 			background: background,
 		})
-	*/
+	}
 }

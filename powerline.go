@@ -113,7 +113,9 @@ func (p *powerline) appendSegment(origin string, segment segment) {
 		if p.isRightPrompt() {
 			segment.separator = p.symbolTemplates.SeparatorReverse
 		} else {
-			//segment.separator = p.symbolTemplates.Separator
+			if *p.args.ShowSeparator == true {
+				segment.separator = p.symbolTemplates.Separator
+			}
 		}
 	}
 	if segment.separatorForeground == 0 {
