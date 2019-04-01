@@ -94,7 +94,7 @@ var themes = map[string]Theme{
 		AliasFg:            15,  // white
 		AliasBg:            31,  // blueish
 		PathFg:             250, // light grey
-		PathBg:             16,  // dark grey 237
+		PathBg:             237, // dark grey 237
 		CwdFg:              254, // nearly-white grey
 		SeparatorFg:        148,
 
