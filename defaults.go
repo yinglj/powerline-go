@@ -94,9 +94,9 @@ var themes = map[string]Theme{
 		AliasFg:            15,  // white
 		AliasBg:            31,  // blueish
 		PathFg:             250, // light grey
-		PathBg:             237, // dark grey
+		PathBg:             16,  // dark grey 237
 		CwdFg:              254, // nearly-white grey
-		SeparatorFg:        244,
+		SeparatorFg:        148,
 
 		ReadonlyFg: 254,
 		ReadonlyBg: 124,
@@ -127,17 +127,17 @@ var themes = map[string]Theme{
 		JobsBg: 238,
 
 		CmdPassedFg: 15,
-		CmdPassedBg: 236,
+		CmdPassedBg: 16,
 		CmdFailedFg: 15,
 		CmdFailedBg: 161,
 
 		SvnChangesFg: 22, // dark green
 		SvnChangesBg: 148,
 
-		GitAheadFg:      250,
-		GitAheadBg:      240,
-		GitBehindFg:     250,
-		GitBehindBg:     240,
+		GitAheadFg:      15,
+		GitAheadBg:      10,
+		GitBehindFg:     15,
+		GitBehindBg:     13,
 		GitStagedFg:     15,
 		GitStagedBg:     22,
 		GitNotStagedFg:  15,
