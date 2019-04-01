@@ -3,8 +3,9 @@
 A [Powerline](https://github.com/Lokaltog/vim-powerline) like prompt for Bash,
 ZSH and Fish. Based on [Powerline-Shell](https://github.com/banga/powerline-shell) by @banga.
 Ported to golang by @justjanne.
-
-![Solarized+Powerline](https://raw.github.com/justjanne/powerline-go/master/preview.png)
+![Solarized+Powerline](https://github.com/yinglj/powerline-go/raw/master/preview.png)
+Default new theme:
+![Solarized+Powerline](https://github.com/yinglj/powerline-go/raw/master/default.jpg)
 
 - Shows some important details about the git/hg branch (see below)
 - Changes color if the last command exited with a failure code
@@ -15,16 +16,26 @@ Ported to golang by @justjanne.
 
 **Table of Contents**
 
-- [Version Control](#version-control)
-- [Installation](#installation)
-  - [Precompiled Binaries](#precompiled-binaries)
-  - [Other Platforms](#other-platforms)
-  - [Bash](#bash)
-  - [ZSH](#zsh)
-  - [Fish](#fish)
-  - [Nix](#nix)
-- [Customization](#customization)
-- [License](#license)
+- [A Powerline style prompt for your shell](#a-powerline-style-prompt-for-your-shell)
+  - [Version Control](#version-control)
+  - [Installation](#installation)
+    - [Precompiled Binaries](#precompiled-binaries)
+    - [Other Platforms](#other-platforms)
+    - [Bash](#bash)
+    - [ZSH](#zsh)
+    - [Fish](#fish)
+    - [Nix](#nix)
+  - [Customization](#customization)
+    - [Eval](#eval)
+        - [Bash](#bash-1)
+        - [ZSH](#zsh-1)
+        - [Fish](#fish-1)
+    - [Path Aliases](#path-aliases)
+    - [Duration](#duration)
+      - [Bash](#bash-2)
+      - [Zsh](#zsh)
+      - [Fish](#fish-2)
+  - [License](#license)
 
 ## Version Control
 
@@ -216,6 +227,14 @@ Usage of powerline-go:
   -truncate-segment-width int
     	 Minimum width of a segment, segments longer than this will be shortened if space is limited. Setting this to 0 disables it.
     	 (default 16)
+  -svnstatuslocal
+         Default use command `svn status -u` to check svn server status, otherwise use `svn status` to check svn local status only.
+  -showexitcode",
+         show exit code when command excuted return error.
+  -showhost",
+         show hostname info.
+  -showseparator
+         show separator.
 ```
 ### Eval
 
