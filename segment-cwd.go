@@ -217,7 +217,7 @@ func segmentCwd(p *powerline) {
 					segment.separator = p.symbolTemplates.SeparatorReverseThin
 					segment.separatorForeground = p.theme.SeparatorFg
 				} else if (p.align == alignLeft || !p.supportsRightModules()) && !isLastDir {
-					segment.separator = p.symbolTemplates.SeparatorThin
+					segment.separator = p.symbolTemplates.Separator
 					segment.separatorForeground = p.theme.SeparatorFg
 				}
 			}

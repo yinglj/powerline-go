@@ -26,6 +26,7 @@ var symbolTemplates = map[string]Symbols{
 		SeparatorReverse:     "\uE0B2",
 		SeparatorReverseThin: "\uE0B3",
 
+		GitRepo:        "\uE0A0",
 		RepoDetached:   "\u2693",
 		RepoAhead:      "\u2B06",
 		RepoBehind:     "\u2B07",
